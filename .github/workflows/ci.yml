@@ -1,19 +1,20 @@
-name: 'Merge command'
-
 on: issue_comment
-
+name: Issue Comments
 jobs:
-  merge-command:
-
+  check_comments:
+    name: Check comments for /test
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-
-    - name: Merge command
-      uses: Goobles/gh-actions-merge-command@v1
-      with:
-        allow_ff: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check for Command
+        id: command
+        #uses: xt0rted/slash-command-action@v1
+        uses: maxkomarychev/oction-merge-pull-request@v0.7.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull_number: 'true'
+          command: test
+      - name:
+        run: |
+          echo ${{ steps.my_step_id.outputs.id }}
+          echo ${{ steps.my_step_id.outputs.number }}
+            
