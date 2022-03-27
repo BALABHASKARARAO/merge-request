@@ -22,5 +22,11 @@ jobs:
           issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
           body: |
             Hello @${{ github.event.client_payload.github.actor }}!
+<<<<<<< HEAD
+
             [Click here to see the command run output][1]
+
+=======
+            [Click here to see the command run output][1]
+>>>>>>> b66abd7ae1741eb9ac19b5db117fc96b22df7fc8
             [1]: ${{ steps.vars.outputs.run-url }}
