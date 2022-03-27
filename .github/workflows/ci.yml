@@ -8,8 +8,8 @@ jobs:
       - name: Check for Command
         id: command
         uses: "pascalgn/automerge-action@v0.15.2"
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           command: test
           #reaction: "true"
           #reaction-type: "eyes"
